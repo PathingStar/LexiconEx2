@@ -171,14 +171,22 @@ namespace LexiconEx2
         }
         private static void TheTherdWord()
         {
-            string[] inputs;
+            List<string> inputs;
             while (true)
             {
                 try
                 {
                     Console.Write("Skriv en mening med minst 3 ord: ");
-                    inputs = Console.ReadLine().Split(" ");
-                    if (inputs.Length < 3) Fell(); else break;
+                    inputs = Console.ReadLine().Split(" ").ToList();
+                    for (int i = 0; i < inputs.Count; i++)
+                    {
+                        if (string.IsNullOrWhiteSpace(inputs[i])) {
+                            inputs.RemoveAt(i); 
+                        i--;
+                        }
+                        
+                    } 
+                    if (inputs.Count < 3) Fell(); else break;
                 }
                 catch
                 {
