@@ -20,7 +20,7 @@ namespace LexiconEx2
             Console.WriteLine("Wälkomen till menyn.");
 
             while (run) {
-                Console.WriteLine("Skriv " + item1 + " för att köpa bio biljet.\nSkriv " + item2 + " för eco.\nSkriv " + item3 + " för tredje ordet i mening.\nSkriv " + item0 + " för att avsluta.");
+                Console.WriteLine("Skriv " + item1 + " för att köpa bio biljet.\nSkriv " + item2 + " för upprepa tio gånger.\nSkriv " + item3 + " för tredje ordet i mening.\nSkriv " + item0 + " för att avsluta.");
                 try
                 {
                     input = Console.ReadLine();
@@ -36,6 +36,7 @@ namespace LexiconEx2
                         Bio();
                         break;
                     case item2:
+                        Eco();
                         break;
                     case item3:
                         break;
@@ -152,5 +153,21 @@ namespace LexiconEx2
 
             Console.WriteLine("Slut summan är " + summe + "kr");
         }
+        private static void Eco()
+        {
+            Console.Write("Skriv vad du vill ska upprepa tio gånger: ");
+            string input;
+            while (true)
+            {
+                input = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(input)) Fell(); else break;
+            }
+            
+            for (int i = 0;i<10 ; i++)
+            {
+                Console.Write(input);
+            }
+        }
+
     }
 }
