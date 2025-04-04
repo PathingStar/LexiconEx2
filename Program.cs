@@ -39,6 +39,7 @@ namespace LexiconEx2
                         Eco();
                         break;
                     case item3:
+                        TheTherdWord();
                         break;
                     case item0:
                         run = false;
@@ -168,6 +169,23 @@ namespace LexiconEx2
                 Console.Write(input);
             }
         }
-
+        private static void TheTherdWord()
+        {
+            string[] inputs;
+            while (true)
+            {
+                try
+                {
+                    Console.Write("Skriv en mening med minst 3 ord: ");
+                    inputs = Console.ReadLine().Split(" ");
+                    if (inputs.Length < 3) Fell(); else break;
+                }
+                catch
+                {
+                    Fell();
+                }
+            }
+            Console.WriteLine(inputs[2]);
+        }
     }
 }
